@@ -1,18 +1,28 @@
 {
-  "name": "my-javascript-project",
+  "name": "webdev-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express REST API for backend development",
   "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "rest-api",
+    "backend"
+  ],
+  "author": "Nur Hana",
   "license": "ISC",
   "type": "module",
-  "main": "main.js",
+  "main": "src/app.js",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
     "eslint": "^9.38.0",
-    "globals": "^16.4.0"
+    "globals": "^16.4.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

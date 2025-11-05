@@ -1,0 +1,31 @@
+# API HTTP test requests for VS code REST client
+
+### Get all cats
+GET http://localhost:3000/api/v1/cats
+
+### Get cat by id
+GET http://localhost:3000/api/v1/cats/2
+Content-Type: application/json
+
+### Get single cat
+GET http://localhost:3000/api/v1/cat
+
+### Test endpoint
+GET http://localhost:3000/api/test
+
+### Get static file
+GET http://localhost:3000/public/index.html
+
+
+#### Create new cat
+POST  http://localhost:3000/api/v1/cats
+Content-Type: application/json
+
+  {
+    "cat_id": 5,
+    "name": "Ville",
+    "birthdate": "2023-10-18",
+    "weight": 7,
+    "owner": "Hessu",
+    "image": "https://loremflickr.com/320/240/cat3"
+  }
