@@ -1,4 +1,4 @@
-# WebDev Backend -Express REST API
+# WebDev Backend - Express REST API
 
 A simple Express.js REST API for backend development course assignments.
 
@@ -19,13 +19,13 @@ npm install
 
 3. **Run the server**
 
-- **_Development mode_**
+- _Development mode_
 
 ```bash
 npm run dev
 ```
 
-- **_Production mode_**
+- _Production mode_
 
 ```bash
 npm start
