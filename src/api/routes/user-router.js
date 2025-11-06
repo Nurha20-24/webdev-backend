@@ -10,6 +10,12 @@ import {
 
 const userRouter = express.Router();
 
+/*
+userRouter.get('/', (req, res) => {
+  res.json(users);
+});
+*/
+
 userRouter.route('/').get(getUser).post(postUser);
 
 userRouter.route('/:id').get(getUserById).put(putUser).delete(deleteUser);

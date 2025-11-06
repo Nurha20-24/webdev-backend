@@ -16,7 +16,7 @@ POST  http://localhost:3000/api/v1/cats
 Content-Type: application/json
 
   {
-    "cat_name": "Kittens2",
+    "cat_name": "Kittens",
     "weight": 8,
     "birthdate": "2021-10-12",
     "filename": "https://loremflickr.com/320/240/cat3",
@@ -28,7 +28,7 @@ PUT http://localhost:3000/api/v1/cats/9590
 Content-Type: application/json
 
 {
-    "cat_name": "Kittens",
+    "cat_name": "cute Kittens",
     "weight": 8,
     "birthdate": "2021-10-12",
     "filename": "https://loremflickr.com/320/240/cat3",
@@ -36,7 +36,6 @@ Content-Type: application/json
   }
 
 ### Delete cat
-
 DELETE http://localhost:3000/api/v1/cats/9594
 
 
@@ -78,3 +77,31 @@ Content-Type: application/json
 
 ### Delete user
 DELETE http://localhost:3000/api/v1/users/3611
+
+
+### post new cat with image
+POST http://127.0.0.1:3000/api/v1/cats HTTP/1.1
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="cat_name"
+
+Misu
+--MyBoundary
+Content-Disposition: form-data; name="weight"
+
+6
+--MyBoundary
+Content-Disposition: form-data; name="owner"
+
+3602
+--MyBoundary
+Content-Disposition: form-data; name="birthdate"
+
+2023-10-08
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="dog.jpg"
+Content-Type: image/jpg
+
+< ./dog.jpg
+--MyBoundary--
