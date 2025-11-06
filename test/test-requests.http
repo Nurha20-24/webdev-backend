@@ -4,14 +4,8 @@
 GET http://localhost:3000/api/v1/cats
 
 ### Get cat by id
-GET http://localhost:3000/api/v1/cats/2
+GET http://localhost:3000/api/v1/cats/9590
 Content-Type: application/json
-
-### Get single cat
-GET http://localhost:3000/api/v1/cats
-
-### Test endpoint
-GET http://localhost:3000/api/test
 
 ### Get static file
 GET http://localhost:3000/public/index.html
@@ -22,17 +16,6 @@ POST  http://localhost:3000/api/v1/cats
 Content-Type: application/json
 
   {
-    "cat_name": "Kittens2",
-    "weight": 8,
-    "birthdate": "2021-10-12",
-    "filename": "https://loremflickr.com/320/240/cat3",
-     "owner": 3602
-  }
-
-### Update cat Info
-PUT http://localhost:3000/api/v1/cats/9594
-Content-Type: application/json
-{
     "cat_name": "Kittens",
     "weight": 8,
     "birthdate": "2021-10-12",
@@ -40,58 +23,60 @@ Content-Type: application/json
      "owner": 3602
   }
 
-### Delete cat
+### Update cat Info
+PUT http://localhost:3000/api/v1/cats/9590
+Content-Type: application/json
 
+{
+    "cat_name": "cute Kittens",
+    "weight": 8,
+    "birthdate": "2021-10-12",
+    "filename": "https://loremflickr.com/320/240/cat3",
+     "owner": 3602
+  }
+
+### Delete cat
 DELETE http://localhost:3000/api/v1/cats/9594
 
 
 
 // Users
 
-
 ### Get all users
 GET http://localhost:3000/api/v1/users
 
 ### Get user by id
-GET http://localhost:3000/api/v1/users/2
+GET http://localhost:3000/api/v1/users/3609
 Content-Type: application/json
-
-### Get single user
-GET http://localhost:3000/api/v1/users
-
 
 ### Create new user
 POST  http://localhost:3000/api/v1/users
 Content-Type: application/json
 
   {
-    user_id: 3611,
-    name: 'Alice Smith',
-    username: 'alicesmith',
-    email: 'alice@metropolia.fi',
-    role: 'user',
-    password: 'password'
+
+    "name": "Alice Smith",
+    "username": "alicesmith",
+    "email": "alice@metropolia.fi",
+    "role": "user",
+    "password": "password"
   }
 
 ### Update user Info
-PUT http://localhost:3000/api/v1/users/3611
+PUT http://localhost:3000/api/v1/users/3610
 Content-Type: application/json
 
   {
-    user_id: 3611,
-    name: 'Sarah Smith',
-    username: 'sarahsmith',
-    email: 'sarah@metropolia.fi',
-    role: 'user',
-    password: 'password'
+
+    "name": "Bob Johnson",
+    "username": "bobjohnson",
+    "email": "bob@metropolia.fi",
+    "role": "user",
+    "password": "password"
   }
 
 ### Delete user
-
 DELETE http://localhost:3000/api/v1/users/3611
-
-
-
 
 
 ### post new cat with image
@@ -116,7 +101,7 @@ Content-Disposition: form-data; name="birthdate"
 2023-10-08
 --MyBoundary
 Content-Disposition: form-data; name="file"; filename="dog.jpg"
-Content-Type: image/jpeg
+Content-Type: image/jpg
 
 < ./dog.jpg
 --MyBoundary--

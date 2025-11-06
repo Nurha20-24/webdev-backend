@@ -11,9 +11,9 @@ const userItems = [
 
   {
     user_id: 3610,
-    name: 'Alice Smith',
-    username: 'alicesmith',
-    email: 'alice@metropolia.fi',
+    name: 'Alexandra Andersson',
+    username: 'alexandraandersson',
+    email: 'alexandra@metropolia.fi',
     role: 'user',
     password: 'password',
   },

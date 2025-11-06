@@ -2,7 +2,7 @@
 const catItems = [
   {
     cat_id: 9592,
-    cat_name: 'Frank',
+    cat_name: 'Whiskers',
     weight: 11,
     owner: 3609,
     filename: 'f3dbafakjsdfhg4',

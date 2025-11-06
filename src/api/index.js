@@ -12,7 +12,4 @@ console.log('Talla ollaan catRouter');
 router.use('/cats', catRouter);
 router.use('/users', userRouter);
 
-// bind base url for all cat routes to catRouter
-//router.use('/users', catRouter);
-
 export default router;
