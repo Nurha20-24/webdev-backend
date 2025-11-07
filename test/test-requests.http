@@ -46,7 +46,7 @@ DELETE http://localhost:3000/api/v1/cats/9594
 GET http://localhost:3000/api/v1/users
 
 ### Get user by id
-GET http://localhost:3000/api/v1/users/3609
+GET http://localhost:3000/api/v1/users/37
 Content-Type: application/json
 
 ### Create new user
