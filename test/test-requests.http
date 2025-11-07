@@ -50,16 +50,12 @@ GET http://localhost:3000/api/v1/users/37
 Content-Type: application/json
 
 ### Create new user
-POST  http://localhost:3000/api/v1/users
+POST  http://localhost:3000/api/v1/auth/login
 Content-Type: application/json
 
   {
-
-    "name": "Alice Smith",
     "username": "alicesmith",
     "email": "alice@metropolia.fi",
-    "role": "user",
-    "password": "password"
   }
 
 ### Update user Info
