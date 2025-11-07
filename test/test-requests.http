@@ -4,7 +4,7 @@
 GET http://localhost:3000/api/v1/cats
 
 ### Get cat by id
-GET http://localhost:3000/api/v1/cats/9590
+GET http://localhost:3000/api/v1/cats/41
 Content-Type: application/json
 
 ### Get static file
@@ -94,7 +94,7 @@ Content-Disposition: form-data; name="weight"
 --MyBoundary
 Content-Disposition: form-data; name="owner"
 
-3602
+37
 --MyBoundary
 Content-Disposition: form-data; name="birthdate"
 
