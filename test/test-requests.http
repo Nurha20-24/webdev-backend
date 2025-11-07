@@ -1,5 +1,7 @@
 # API HTTP test requests for VS code REST client
 
+@token = <put>
+
 ### Get all cats
 GET http://localhost:3000/api/v1/cats
 
@@ -54,9 +56,18 @@ POST  http://localhost:3000/api/v1/auth/login
 Content-Type: application/json
 
   {
-    "username": "alicesmith",
+    "username": "alicesmith3",
     "email": "alice@metropolia.fi",
   }
+
+### Get my user info
+ GET http://localhost:3000/api/v1/auth/me
+ Authorization: Bearer {{token}}
+
+
+### Get my cats
+ GET http://localhost:3000/api/v1/cats/user
+ Authorization: Bearer {{token}}
 
 ### Update user Info
 PUT http://localhost:3000/api/v1/users/3610

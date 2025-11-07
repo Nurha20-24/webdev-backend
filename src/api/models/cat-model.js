@@ -9,6 +9,14 @@ const listAllCats = async () => {
   return rows;
 };
 
+const listCatsByUserId = async (userId) => {
+  const [rows] = await promisePool.execute(
+    'SELECT * FROM wsk_cats WHERE owner = ?',
+    [userId]
+  );
+  return rows;
+};
+
 const findCatById = async (id) => {
   const [rows] = await promisePool.execute(
     'SELECT * FROM wsk_cats WHERE cat_id = ?',
@@ -23,8 +31,7 @@ const findCatById = async (id) => {
 
 const addCat = async (cat) => {
   const {cat_name, weight, owner, filename, birthdate} = cat;
-  const sql = `INSERT INTO wsk_cats (cat_name, weight, owner, filename, birthdate)
-               VALUES (?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO wsk_cats (cat_name, weight, owner, filename, birthdate) VALUES (?, ?, ?, ?, ?)`;
   const params = [cat_name, weight, owner, filename, birthdate];
   const result = await promisePool.execute(sql, params);
   console.log('result', result);
@@ -59,4 +66,11 @@ const removeCat = async (id) => {
   return {message: 'success'};
 };
 
-export {listAllCats, findCatById, addCat, modifyCat, removeCat};
+export {
+  listAllCats,
+  listCatsByUserId,
+  findCatById,
+  addCat,
+  modifyCat,
+  removeCat,
+};
