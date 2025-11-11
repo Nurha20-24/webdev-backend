@@ -6,8 +6,9 @@
 GET http://localhost:3000/api/v1/cats
 
 ### Get cat by id
-GET http://localhost:3000/api/v1/cats/41
+GET http://localhost:3000/api/v1/cats/66
 Content-Type: application/json
+
 
 ### Get static file
 GET http://localhost:3000/public/index.html
@@ -18,27 +19,27 @@ POST  http://localhost:3000/api/v1/cats
 Content-Type: application/json
 
   {
-    "cat_name": "Kittens",
-    "weight": 8,
+    "cat_name": "Muffin",
+    "weight": 5,
     "birthdate": "2021-10-12",
     "filename": "https://loremflickr.com/320/240/cat3",
-     "owner": 3602
+     "owner": 60
   }
 
 ### Update cat Info
-PUT http://localhost:3000/api/v1/cats/9590
+PUT http://localhost:3000/api/v1/cats/68
 Content-Type: application/json
 
 {
-    "cat_name": "cute Kittens",
-    "weight": 8,
+    "cat_name": "Muffy",
+    "weight": 9,
     "birthdate": "2021-10-12",
     "filename": "https://loremflickr.com/320/240/cat3",
-     "owner": 3602
+     "owner": 50
   }
 
 ### Delete cat
-DELETE http://localhost:3000/api/v1/cats/9594
+DELETE http://localhost:3000/api/v1/cats/65
 
 
 
@@ -48,15 +49,21 @@ DELETE http://localhost:3000/api/v1/cats/9594
 GET http://localhost:3000/api/v1/users
 
 ### Get user by id
-GET http://localhost:3000/api/v1/users/37
+GET http://localhost:3000/api/v1/users/44
 Content-Type: application/json
+
+### Get cat by user id
+GET http://localhost:3000/api/v1/users/44/cats/
+
 
 ### Create new user
 POST  http://localhost:3000/api/v1/auth/login
 Content-Type: application/json
 
   {
-    "username": "alicesmith3",
+
+    "name": "Venisa Smith",
+    "username": "venisasmith",
     "email": "alice@metropolia.fi",
   }
 
@@ -70,20 +77,20 @@ Content-Type: application/json
  Authorization: Bearer {{token}}
 
 ### Update user Info
-PUT http://localhost:3000/api/v1/users/3610
+PUT http://localhost:3000/api/v1/users/60
 Content-Type: application/json
 
   {
 
-    "name": "Bob Johnson",
-    "username": "bobjohnson",
+    "name": "Harisa Johnson",
+    "username": "harisajohnson",
     "email": "bob@metropolia.fi",
     "role": "user",
     "password": "password"
   }
 
 ### Delete user
-DELETE http://localhost:3000/api/v1/users/3611
+DELETE http://localhost:3000/api/v1/users/54
 
 
 ### post new cat with image
@@ -101,7 +108,7 @@ Content-Disposition: form-data; name="weight"
 --MyBoundary
 Content-Disposition: form-data; name="owner"
 
-37
+60
 --MyBoundary
 Content-Disposition: form-data; name="birthdate"
 

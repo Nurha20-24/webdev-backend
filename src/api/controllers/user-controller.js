@@ -1,6 +1,12 @@
 import bcrypt from 'bcrypt';
 
-import {addUser, findUserById, listAllUsers} from '../models/user-model.js';
+import {
+  addUser,
+  findUserById,
+  listAllUsers,
+  modifyUser,
+  removeUser,
+} from '../models/user-model.js';
 
 const getUser = async (req, res) => {
   res.json(await listAllUsers());
@@ -27,16 +33,18 @@ const postUser = async (req, res) => {
   }
 };
 
-const putUser = (req, res) => {
-  // not implemented in this example, this is future homework
-  res.status(200);
-  res.json({message: 'User item updated.'});
+const putUser = async (req, res) => {
+  const result = await modifyUser(req.body, req.params.id);
+  if (result) {
+    res.json(result);
+  } else {
+    res.status(400).json({message: 'User not updated.'});
+  }
 };
 
-const deleteUser = (req, res) => {
-  // not implemented in this example, this is future homework
-  res.status(200);
-  res.json({message: 'User item deleted.'});
+const deleteUser = async (req, res) => {
+  const result = await removeUser(req.params.id);
+  res.json(result);
 };
 
 export {getUser, getUserById, postUser, putUser, deleteUser};
