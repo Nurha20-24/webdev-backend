@@ -1,4 +1,11 @@
-import {addCat, findCatById, listAllCats} from '../models/cat-model.js';
+import {
+  addCat,
+  findCatById,
+  findCatsByUserId,
+  listAllCats,
+  modifyCat,
+  removeCat,
+} from '../models/cat-model.js';
 
 const getCat = async (req, res) => {
   res.json(await listAllCats());
@@ -11,6 +18,15 @@ const getCatById = async (req, res) => {
     res.json(cat);
   } else {
     res.sendStatus(404);
+  }
+};
+
+const getCatsByUserId = async (req, res) => {
+  const cats = await findCatsByUserId(req.params.id);
+  if (cats.length > 0) {
+    res.json(cats);
+  } else {
+    res.status(404).json({message: 'No cats found for this user.'});
   }
 };
 
@@ -30,16 +46,18 @@ const postCat = async (req, res) => {
   }
 };
 
-const putCat = (req, res) => {
-  // not implemented in this example, this is  homework
-  res.status(200);
-  res.json({message: 'Cat item updated.'});
+const putCat = async (req, res) => {
+  const result = await modifyCat(req.body, req.params.id);
+  if (result) {
+    res.json(result);
+  } else {
+    res.status(400).json({message: 'Cat not found'});
+  }
 };
 
-const deleteCat = (req, res) => {
-  // not implemented in this example, this is homework
-  res.status(200);
-  res.json({message: 'Cat item deleted.'});
+const deleteCat = async (req, res) => {
+  const result = await removeCat(req.params.id);
+  res.json(result);
 };
 
-export {getCat, getCatById, postCat, putCat, deleteCat};
+export {getCat, getCatById, getCatsByUserId, postCat, putCat, deleteCat};

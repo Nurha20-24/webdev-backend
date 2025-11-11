@@ -31,4 +31,54 @@ const addUser = async (user) => {
   return {user_id: result[0].insertId};
 };
 
-export {listAllUsers, findUserById, addUser};
+const removeUser = async (userId) => {
+  const connection = await promisePool.getConnection();
+
+  try {
+    await connection.beginTransaction();
+
+    await connection.execute('DELETE FROM wsk_cats WHERE owner = ?', [userId]);
+
+    const [result] = await connection.execute(
+      'DELETE FROM wsk_users WHERE user_id = ?',
+      [userId]
+    );
+
+    if (result.affectedRows === 0) {
+      return {
+        message: 'User not deleted.',
+      };
+    }
+
+    await connection.commit();
+    return {
+      message: 'User deleted and their cats deleted.',
+    };
+  } catch (error) {
+    await connection.rollback();
+    console.error('error', error.message);
+    return {
+      message: error.message,
+    };
+  } finally {
+    connection.release();
+  }
+};
+
+const modifyUser = async (user, id) => {
+  const {...updateData} = user;
+  const sql = promisePool.format(`UPDATE wsk_users SET ? WHERE user_id = ?`, [
+    updateData,
+    id,
+  ]);
+
+  const [result] = await promisePool.execute(sql);
+  console.log('modifyUser result', result);
+
+  if (result.affectedRows === 0) {
+    return false;
+  }
+  return {message: 'User updated successfully'};
+};
+
+export {listAllUsers, findUserById, addUser, modifyUser, removeUser};
