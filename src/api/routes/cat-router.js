@@ -13,6 +13,7 @@ import {
 // multer imports
 import multer from 'multer';
 import {authenticateToken} from '../../middlewares/authentication.js';
+import {createThumbnail} from '../../middlewares/upload.js';
 const upload = multer({dest: 'uploads/'});
 
 const catRouter = express.Router();
@@ -20,7 +21,7 @@ const catRouter = express.Router();
 catRouter
   .route('/')
   .get(getCat)
-  .post(authenticateToken, upload.single('file'), postCat);
+  .post(authenticateToken, upload.single('file'), createThumbnail, postCat);
 
 // omat kuvat
 catRouter.route('/user').get(authenticateToken, getMyCats);

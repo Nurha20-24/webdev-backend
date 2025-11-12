@@ -10,7 +10,7 @@ GET http://localhost:3000/api/v1/cats
 
 
 ### Get cat by ID
-GET http://localhost:3000/api/v1/cats/66
+GET http://localhost:3000/api/v1/cats/84
 Content-Type: application/json
 
 
@@ -85,6 +85,32 @@ Content-Type: image/jpg
 --MyBoundary--
 
 
+### Post new cat with image and thumbail creation
+POST http://127.0.0.1:3000/api/v1/cats
+Content-Type: multipart/form-data; boundary=MyBoundary
+Authorization: Bearer {{token}}
+
+--MyBoundary
+Content-Disposition: form-data; name="cat_name"
+
+Misu
+--MyBoundary
+Content-Disposition: form-data; name="weight"
+
+6
+--MyBoundary
+Content-Disposition: form-data; name="birthdate"
+
+2023-10-08
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="dog.jpg"
+Content-Type: image/jpeg
+
+< ./dog.jpg
+--MyBoundary--
+
+
+
 ### Users
 
 ### Get all users
@@ -136,7 +162,6 @@ Authorization: Bearer {{token}}
 ### Delete user
 DELETE http://localhost:3000/api/v1/users/68
 Authorization: Bearer {{token}}
-
 
 
 ### Login

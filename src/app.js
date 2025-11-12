@@ -24,7 +24,7 @@ app.get(
     console.log('Olen middleware ja käsitteleen dataa');
     next();
   },
-  (req, res, next) => {
+  (req, res) => {
     console.log('Moikka pääsin perille');
     res.send('Tiedosto upattu ja käsitelty');
   }
