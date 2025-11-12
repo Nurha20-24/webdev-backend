@@ -12,7 +12,7 @@ import {
 
 // multer imports
 import multer from 'multer';
-import {authenticateToken} from '../../middlewares/middlewares.js';
+import {authenticateToken} from '../../middlewares/authentication.js';
 const upload = multer({dest: 'uploads/'});
 
 const catRouter = express.Router();
@@ -28,6 +28,10 @@ catRouter.route('/user').get(authenticateToken, getMyCats);
 // jonkun toisen kuvat
 catRouter.route('/user/:id').get(authenticateToken, getCatsByUserId);
 
-catRouter.route('/:id').get(getCatById).put(putCat).delete(deleteCat);
+catRouter
+  .route('/:id')
+  .get(getCatById)
+  .put(authenticateToken, putCat)
+  .delete(authenticateToken, deleteCat);
 
 export default catRouter;

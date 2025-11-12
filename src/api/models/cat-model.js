@@ -68,7 +68,6 @@ const removeCat = async (id) => {
     'DELETE FROM wsk_cats WHERE cat_id = ?',
     [id]
   );
-  console.log('rows', rows);
   if (rows.affectedRows === 0) {
     return false;
   }

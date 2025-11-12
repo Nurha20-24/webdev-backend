@@ -1,7 +1,9 @@
 import express from 'express';
+import cors from 'cors';
 import api from './api/index.js';
 const app = express();
 
+app.use(cors());
 app.use('/public', express.static('public'));
 app.use(express.json());
 

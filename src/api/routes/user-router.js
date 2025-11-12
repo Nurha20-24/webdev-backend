@@ -7,7 +7,7 @@ import {
   putUser,
   deleteUser,
 } from '../controllers/user-controller.js';
-import {authenticateToken} from '../../middlewares/middlewares.js';
+import {authenticateToken} from '../../middlewares/authentication.js';
 
 import {getCatsByUserId} from '../controllers/cat-controller.js';
 
@@ -21,7 +21,11 @@ userRouter.get('/', (req, res) => {
 
 userRouter.route('/').get(authenticateToken, getUser).post(postUser);
 
-userRouter.route('/:id').get(getUserById).put(putUser).delete(deleteUser);
+userRouter
+  .route('/:id')
+  .get(getUserById)
+  .put(authenticateToken, putUser)
+  .delete(authenticateToken, deleteUser);
 
 userRouter.route('/:id/cats').get(getCatsByUserId);
 

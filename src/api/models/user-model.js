@@ -20,7 +20,7 @@ const findUserById = async (id) => {
 
 const findUserByUsername = async (username) => {
   const [rows] = await promisePool.execute(
-    'SELECT * FROM wsk_users WHERE username = ?',
+    `SELECT * FROM wsk_users WHERE username = ?`,
     [username]
   );
   console.log('rows', rows);
@@ -93,4 +93,11 @@ const modifyUser = async (user, id) => {
   return {message: 'User updated successfully'};
 };
 
-export {listAllUsers, findUserById, addUser, modifyUser, removeUser};
+export {
+  listAllUsers,
+  findUserById,
+  findUserByUsername,
+  addUser,
+  modifyUser,
+  removeUser,
+};
